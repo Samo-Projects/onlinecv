@@ -1,6 +1,7 @@
 import { CreateProfile } from 'Core/Application/Profile/Command/UseCase/CreateProfile';
 import { ProfileRequest } from 'Core/Domain/Profile/Model';
 import { InMemoryProfileReadRepository, InMemoryProfileWriteRepository } from 'Infrastructure/Persistence/InMemory/Profile';
+import { v4 as uuidv4 } from 'uuid';
 
 import { StubProfileBuilder } from '../../../Stub';
 
@@ -48,7 +49,8 @@ describe('Unit test - Creating the profile in the source', () => {
 	it("When the profile's email already exists", async (done) => {
 		expect.assertions(1);
 
-		const profile = new StubProfileBuilder().build();
+		const uuid = uuidv4();
+		const profile = new StubProfileBuilder().withUuid(uuid).build();
 		profileReadRepository.feedTheProfilesWith([profile]);
 
 		await expect(createProfile.execute(createProfileRequest)).rejects.toThrowError(

@@ -1,5 +1,5 @@
 // eslint-disable-next-line prettier/prettier
-import { IsAlpha, IsAlphanumeric, IsBoolean, IsDate, IsEmail, IsNotEmpty, IsPostalCode, IsString, IsUrl, IsUUID, Length, MinLength, validateSync } from 'class-validator';
+import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsOptional, IsPostalCode, IsString, IsUrl, IsUUID, Length, MinLength, validateSync } from 'class-validator';
 
 class Profile {
 	@IsUUID('4')
@@ -9,47 +9,51 @@ class Profile {
 	private _name: string;
 
 	@Length(2, 50)
-	@IsAlpha()
+	@IsString()
 	private _firstName: string;
 
 	@Length(2, 50)
-	@IsAlpha()
+	@IsString()
 	private _lastName: string;
 
 	@MinLength(5)
-	@IsAlpha()
+	@IsString()
 	private _nationality: string;
 
 	@IsDate()
 	private _birthDate: Date;
 
-	@IsAlphanumeric()
+	@IsString()
 	private _address: string;
 
 	@IsPostalCode('FR')
 	private _postalCode: string;
 
 	@Length(2, 50)
-	@IsAlpha()
+	@IsString()
 	private _city: string;
 
 	@Length(2, 50)
-	@IsAlpha()
+	@IsString()
 	private _country: string;
 
 	@IsEmail()
 	private _email: string;
 
-	// @IsAlpha()
+	@IsOptional()
+	@IsString()
 	private _profession?: string;
 
-	// @IsUrl()
+	@IsOptional()
+	@IsUrl()
 	private _link?: string;
 
-	// @IsString()
+	@IsOptional()
+	@IsString()
 	private _photo?: string;
 
-	// @IsBoolean()
+	@IsOptional()
+	@IsBoolean()
 	private _isRoundPhoto?: boolean;
 
 	constructor(
