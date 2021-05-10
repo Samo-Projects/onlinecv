@@ -8,13 +8,13 @@
 
 <br/>
 
-# Description
+## Description
 
 [Online CV](https://google.com) allows you to create and edit your CV online.
 
 <br/>
 
-# Running the app
+## Running the app
 
 ```bash
 # development
@@ -29,12 +29,12 @@ $ npm run start:prod
 
 <br/>
 
-# Support
+## Support
 
 Online CV is an MIT-licensed open source project.
 
 <br/>
 
-# Author
+## Author
 
 [Samir ZEKRI](https://twitter.com/kammysliwiec)
