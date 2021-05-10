@@ -6,6 +6,11 @@
 
 <h1>Project : Online CV</h1>
 
+<p align="center">
+  <a href="https://github.com/Samo-Projects/onlinecv/actions" target="_blank"><img src="https://github.com/Samo-Projects/onlinecv/workflows/CI/badge.svg" alt="CI" /></a>
+  <a href="https://codecov.io/gh/Samo-Projects/onlinecv/" target="_blank"><img src="https://codecov.io/gh/Samo-Projects/onlinecv/branch/main/graph/badge.svg" alt="Coverage" /></a>
+</p>
+
 ## Description
 
 [Online CV](https://google.com) allows you to create and edit your CV online.

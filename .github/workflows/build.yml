@@ -1,4 +1,4 @@
-name: Online CV - CI
+name: CI
 
 on:
   push:
@@ -15,14 +15,17 @@ jobs:
       fail-fast: false
       matrix:
         operating-system: [ubuntu-latest]
-        node-version: [14.x, 15.x]
+        node-version: [10.x, 12.x, 14.x, 15.x]
 
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install
@@ -31,4 +34,8 @@ jobs:
           cmd: build
       - uses: borales/actions-yarn@v2.0.0
         with:
-          cmd: test
+          cmd: test:cov
+      - uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage/lcov.info
