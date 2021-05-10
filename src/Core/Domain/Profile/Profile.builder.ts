@@ -95,7 +95,7 @@ class ProfileBuilder {
 	}
 
 	build(): Profile {
-		const uuid = this.uuid ?? uuidv4();
+		const uuid = typeof this.uuid !== 'undefined' ? this.uuid : uuidv4();
 
 		return new Profile(
 			uuid,
