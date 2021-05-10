@@ -4,15 +4,11 @@
 
 <br/>
 
-<h1><b>Project</b> : Online CV</h1>
-
-<br/>
+<h1>Project : Online CV</h1>
 
 ## Description
 
 [Online CV](https://google.com) allows you to create and edit your CV online.
-
-<br/>
 
 ## Running the app
 
@@ -27,13 +23,9 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-<br/>
-
 ## Support
 
 Online CV is an MIT-licensed open source project.
-
-<br/>
 
 ## Author
 
