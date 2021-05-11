@@ -13,6 +13,9 @@
   <a href="https://github.com/Samo-Projects/onlinecv/actions" target="_blank"><img src="https://github.com/Samo-Projects/onlinecv/workflows/CI/badge.svg" alt="CI" /></a>
   <a href="https://codecov.io/gh/Samo-Projects/onlinecv/" target="_blank"><img src="https://codecov.io/gh/Samo-Projects/onlinecv/branch/main/graph/badge.svg" alt="Coverage" /></a>
 </p>
+<p align="center">
+  <a href="https://nestjs.com/" target="_blank"><img src="https://img.shields.io/badge/nestjs-%23E0234E.svg?&style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS" /></a>
+</p>
 
 ## Description
 
