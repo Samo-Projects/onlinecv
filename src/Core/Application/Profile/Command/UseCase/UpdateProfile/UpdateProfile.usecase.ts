@@ -1,3 +1,4 @@
+import { validateOrReject } from 'class-validator';
 import { ProfileInvalidRequest, ProfileNotFound } from 'Core/Application/Profile/Command/Error';
 import { ProfileBuilder } from 'Core/Domain/Profile';
 import { ProfileRequest } from 'Core/Domain/Profile/Model';
@@ -55,6 +56,7 @@ class UpdateProfile implements UseCase<ProfileRequest, UpdateProfileResponse> {
 			.withLink(link)
 			.build();
 
+		await validateOrReject(profile);
 		await this.profileWriteRepository.saveProfile(profile);
 
 		return UseCaseResult.success<void>();

@@ -1,10 +1,12 @@
+<br />
+
 <p align="center">
   <a href="https://samo-projects.com/" target="blank"><img src="https://user-images.githubusercontent.com/61990102/117683307-3bc61900-b1b4-11eb-952e-e08fe288df7d.png" width="320" alt="Samo-Projects" /></a>
 </p>
 
 <br/>
 
-<h1>Project : Online CV</h1>
+<h1 align="center">Project : Online CV</h1>
 
 <p align="center">
   <a href="https://github.com/Samo-Projects/onlinecv/actions" target="_blank"><img src="https://github.com/Samo-Projects/onlinecv/workflows/CI/badge.svg" alt="CI" /></a>
@@ -13,7 +15,7 @@
 
 ## Description
 
-[Online CV](https://google.com) allows you to create and edit your CV online.
+Online CV allows you to create and edit your CV online.
 
 ## Running the app
 
@@ -34,4 +36,4 @@ Online CV is an MIT-licensed open source project.
 
 ## Author
 
-[Samir ZEKRI](https://twitter.com/kammysliwiec)
+[Samir ZEKRI](https://www.linkedin.com/in/samir-zekri/)

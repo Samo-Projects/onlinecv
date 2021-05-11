@@ -1,5 +1,5 @@
 // eslint-disable-next-line prettier/prettier
-import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsOptional, IsPostalCode, IsString, IsUrl, IsUUID, Length, MinLength, validateSync } from 'class-validator';
+import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsOptional, IsPostalCode, IsString, IsUrl, IsUUID, Length, MinLength } from 'class-validator';
 
 class Profile {
 	@IsUUID('4')
@@ -88,9 +88,6 @@ class Profile {
 		this._link = _link;
 		this._photo = _photo;
 		this._isRoundPhoto = _isRoundPhoto;
-
-		const errorsValidation = validateSync(this);
-		if (errorsValidation.length > 0) throw errorsValidation;
 	}
 
 	get uuid(): string {
