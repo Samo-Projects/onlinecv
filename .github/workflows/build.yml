@@ -23,12 +23,21 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install
       - uses: borales/actions-yarn@v2.0.0
         with:
-          cmd: ci
+          cmd: build
       - uses: borales/actions-yarn@v2.0.0
         with:
-          cmd: test
+          cmd: test:cov
+      - uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage/lcov.info
+          fail_ci_if_error: true
+          verbose: true
