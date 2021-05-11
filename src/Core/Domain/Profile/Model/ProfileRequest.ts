@@ -14,6 +14,7 @@ interface ProfileRequest {
 	link?: string;
 	photo?: string;
 	isRoundPhoto?: boolean;
+	objective?: string;
 }
 
 export default ProfileRequest;
