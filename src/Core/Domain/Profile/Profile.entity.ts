@@ -1,5 +1,5 @@
 // eslint-disable-next-line prettier/prettier
-import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsOptional, IsPostalCode, IsString, IsUrl, IsUUID, Length, MinLength, validateSync } from 'class-validator';
+import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsOptional, IsPostalCode, IsString, IsUrl, IsUUID, Length, MinLength } from 'class-validator';
 
 class Profile {
 	@IsUUID('4')
@@ -56,6 +56,10 @@ class Profile {
 	@IsBoolean()
 	private _isRoundPhoto?: boolean;
 
+	@IsOptional()
+	@IsString()
+	private _objective?: string;
+
 	constructor(
 		_uuid: string,
 		_name: string,
@@ -72,6 +76,7 @@ class Profile {
 		_link?: string,
 		_photo?: string,
 		_isRoundPhoto?: boolean,
+		_objective?: string,
 	) {
 		this._uuid = _uuid;
 		this._name = _name;
@@ -88,9 +93,7 @@ class Profile {
 		this._link = _link;
 		this._photo = _photo;
 		this._isRoundPhoto = _isRoundPhoto;
-
-		const errorsValidation = validateSync(this);
-		if (errorsValidation.length > 0) throw errorsValidation;
+		this._objective = _objective;
 	}
 
 	get uuid(): string {
@@ -151,6 +154,10 @@ class Profile {
 
 	get isRoundPhoto(): boolean | undefined {
 		return this._isRoundPhoto;
+	}
+
+	get objective(): string | undefined {
+		return this._objective;
 	}
 }
 

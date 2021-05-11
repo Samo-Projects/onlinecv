@@ -1,3 +1,4 @@
+import { validateOrReject } from 'class-validator';
 import { ProfileInvalidRequest } from 'Core/Application/Profile/Command/Error';
 import { ProfileBuilder } from 'Core/Domain/Profile';
 import { ProfileRequest } from 'Core/Domain/Profile/Model';
@@ -30,6 +31,7 @@ class CreateProfile implements UseCase<ProfileRequest, CreateProfileResponse> {
 			country,
 			email,
 			link,
+			objective,
 		} = profileRequest;
 
 		const profileExisted = await this.profileReadRepository.retrieveByEmail(email);
@@ -54,8 +56,10 @@ class CreateProfile implements UseCase<ProfileRequest, CreateProfileResponse> {
 			.withCountry(country)
 			.withEmail(email)
 			.withLink(link)
+			.withObjective(objective)
 			.build();
 
+		await validateOrReject(profile);
 		await this.profileWriteRepository.saveProfile(profile);
 
 		return UseCaseResult.success<void>();

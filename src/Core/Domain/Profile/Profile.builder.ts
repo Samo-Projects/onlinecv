@@ -18,6 +18,7 @@ class ProfileBuilder {
 	protected link?: string;
 	protected photo?: string;
 	protected isRoundPhoto?: boolean;
+	protected objective?: string;
 
 	withUuid(uuid?: string): ProfileBuilder {
 		this.uuid = uuid;
@@ -74,28 +75,33 @@ class ProfileBuilder {
 		return this;
 	}
 
-	withProfession(profession: string | undefined): ProfileBuilder {
+	withProfession(profession?: string): ProfileBuilder {
 		this.profession = profession;
 		return this;
 	}
 
-	withLink(link: string | undefined): ProfileBuilder {
+	withLink(link?: string): ProfileBuilder {
 		this.link = link;
 		return this;
 	}
 
-	withPhoto(photo: string | undefined): ProfileBuilder {
+	withPhoto(photo?: string): ProfileBuilder {
 		this.photo = photo;
 		return this;
 	}
 
-	withIsRoundPhoto(isRoundPhoto: boolean | undefined): ProfileBuilder {
+	withIsRoundPhoto(isRoundPhoto?: boolean): ProfileBuilder {
 		this.isRoundPhoto = isRoundPhoto;
 		return this;
 	}
 
+	withObjective(objective?: string): ProfileBuilder {
+		this.objective = objective;
+		return this;
+	}
+
 	build(): Profile {
-		const uuid = this.uuid ?? uuidv4();
+		const uuid = typeof this.uuid !== 'undefined' ? this.uuid : uuidv4();
 
 		return new Profile(
 			uuid,
@@ -113,6 +119,7 @@ class ProfileBuilder {
 			this.link,
 			this.photo,
 			this.isRoundPhoto,
+			this.objective,
 		);
 	}
 }
